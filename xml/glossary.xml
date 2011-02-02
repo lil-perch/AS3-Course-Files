@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<glossary xmlns="www.rapidintake.com/xmlgrammars/fc/glossary">
+  <letter text="*"/>
+  <letter text="A">
+    <term text="Aligator">
+      <definition>&lt;P ALIGN="LEFT"&gt;Scary thing from the dinosaurs.&lt;/P&gt;</definition>
+    </term>
+    <term text="Arangatang">
+      <definition>&lt;P ALIGN="LEFT"&gt;I think this is some kind of monkey.&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="B">
+    <term text="Banana">
+      <definition>&lt;P ALIGN="LEFT"&gt;A delicious fruit. Sometim&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="C">
+    <term text="CleanCourse">
+      <definition>&lt;P ALIGN="LEFT"&gt;orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet dolor libero, in imperdiet neque. In hac habitasse platea dictumst. Praesent fringilla luctus nisi, a adipiscing ipsum fermentum posuere. Curabitur mattis, augue vitae varius cursus, urna libero dignissim ligula, vel tempor justo lorem vel dolor. Suspendisse mi augue, suscipit non facilisis in, semper ac nunc. Maecenas aliquet mi ornare nibh sodales mattis convallis est ullamcorper. Mauris ornare ultricies turpis, nec adipiscing nunc faucibus at. Mauris non orci ante. Sed vitae ante nibh, a sodales nunc. Vestibulum at lectus eu eros pulvinar auctor.&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;Donec ut ligula quis lacus aliquet elementum. Proin iaculis tristique velit sed bibendum. Nullam lobortis sapien orci. Sed malesuada blandit faucibus. Aliquam ut nulla vitae nulla mattis egestas vitae et ligula. Integer nulla tellus, fermentum ullamcorper ullamcorper sollicitudin, sagittis eu tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet porta quam. Curabitur aliquet ipsum eu quam dapibus in vulputate eros porta. In ornare, leo vel aliquam viverra, ipsum neque feugiat purus, et semper enim leo id diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec arcu arcu, mattis pharetra tincidunt ut, posuere non sapien.&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;Mauris eu diam elit. Nam neque dolor, cursus et pretium ut, posuere mattis felis. Ut cursus convallis purus, id condimentum nisi aliquam quis. Nulla convallis quam quis nibh consectetur aliquet. Phasellus ullamcorper, urna ut congue blandit, tortor dolor congue tellus, ac consectetur ligula sem ut arcu. Nulla viverra quam id purus viverra quis semper dui tincidunt. Phasellus lectus ligula, vulputate sed iaculis sed, pellentesque eu sem. Proin leo dui, bibendum id tempus quis, lobortis sollicitudin urna. Praesent a massa est, in aliquam urna. Pellentesque at massa ut magna vulputate tempus ut at nisl. Morbi venenatis egestas mi nec feugiat. Donec tempor mi nec nulla tristique lacinia dapibus eget tortor. Nullam ullamcorper, neque at vulputate laoreet, ipsum elit fermentum nulla, nec pharetra purus justo eget turpis.&lt;/P&gt;</definition>
+    </term>
+    <term text="ClickCourse">
+      <definition>&lt;P ALIGN="LEFT"&gt;This is our low Cost, niche LMS.&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="D"/>
+  <letter text="E"/>
+  <letter text="F"/>
+  <letter text="G"/>
+  <letter text="H">
+    <term text="Hancock">
+      <definition>&lt;P ALIGN="LEFT"&gt;A long standing American name. John Hancock was the signer of the declaration of Independence.&lt;/P&gt;</definition>
+    </term>
+    <term text="Harry">
+      <definition>&lt;P ALIGN="LEFT"&gt;Arangatangs are Harry animals.&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="I"/>
+  <letter text="J"/>
+  <letter text="K"/>
+  <letter text="L">
+    <term text="Long definition">
+      <definition>&lt;P ALIGN="LEFT"&gt;orem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet dolor libero, in imperdiet neque. In hac habitasse platea dictumst. Praesent fringilla luctus nisi, a adipiscing ipsum fermentum posuere. Curabitur mattis, augue vitae varius cursus, urna libero dignissim ligula, vel tempor justo lorem vel dolor. Suspendisse mi augue, suscipit non facilisis in, semper ac nunc. Maecenas aliquet mi ornare nibh sodales mattis convallis est ullamcorper. Mauris ornare ultricies turpis, nec adipiscing nunc faucibus at. Mauris non orci ante. Sed vitae ante nibh, a sodales nunc. Vestibulum at lectus eu eros pulvinar auctor.&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;Donec ut ligula quis lacus aliquet elementum. Proin iaculis tristique velit sed bibendum. Nullam lobortis sapien orci. Sed malesuada blandit faucibus. Aliquam ut nulla vitae nulla mattis egestas vitae et ligula. Integer nulla tellus, fermentum ullamcorper ullamcorper sollicitudin, sagittis eu tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet porta quam. Curabitur aliquet ipsum eu quam dapibus in vulputate eros porta. In ornare, leo vel aliquam viverra, ipsum neque feugiat purus, et semper enim leo id diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec arcu arcu, mattis pharetra tincidunt ut, posuere non sapien.&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;Mauris eu diam elit. Nam neque dolor, cursus et pretium ut, posuere mattis felis. Ut cursus convallis purus, id condimentum nisi aliquam quis. Nulla convallis quam quis nibh consectetur aliquet. Phasellus ullamcorper, urna ut congue blandit, tortor dolor congue tellus, ac consectetur ligula sem ut arcu. Nulla viverra quam id purus viverra quis semper dui tincidunt. Phasellus lectus ligula, vulputate sed iaculis sed, pellentesque eu sem. Proin leo dui, bibendum id tempus quis, lobortis sollicitudin urna. Praesent a massa est, in aliquam urna. Pellentesque at massa ut magna vulputate tempus ut at nisl. Morbi venenatis egestas mi nec feugiat. Donec tempor mi nec nulla tristique lacinia dapibus eget tortor. Nullam ullamcorper, neque at vulputate laoreet, ipsum elit fermentum nulla, nec pharetra purus justo eget turpis.&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="M"/>
+  <letter text="N"/>
+  <letter text="O"/>
+  <letter text="P">
+    <term text="People">
+      <definition>&lt;P ALIGN="LEFT"&gt;Homo Sapiens&lt;/P&gt;</definition>
+    </term>
+    <term text="ProForm">
+      <definition>&lt;P ALIGN="LEFT"&gt;The Flagship product of Rapid Intake.&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="Q"/>
+  <letter text="R">
+    <term text="Rapid Intake. ">
+      <definition>&lt;P ALIGN="LEFT"&gt;The Company.&lt;/P&gt;</definition>
+    </term>
+    <term text="REVIEW">
+      <definition>&lt;P ALIGN="LEFT"&gt;Brand new product just launched. Should be great.&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="S"/>
+  <letter text="T">
+    <term text="Term without Definition"/>
+    <term text="This Time it is a Long Term that I think will Wrap">
+      <definition>&lt;P ALIGN="LEFT"&gt;This is just a long term we don&amp;apos;t really need a definition.&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="U">
+    <term text="Unison">
+      <definition>&lt;P ALIGN="LEFT"&gt;One great product.&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;&lt;/P&gt;&lt;P ALIGN="LEFT"&gt;Don&amp;apos;t you think?&lt;/P&gt;</definition>
+    </term>
+  </letter>
+  <letter text="V"/>
+  <letter text="W"/>
+  <letter text="X"/>
+  <letter text="Y"/>
+  <letter text="Z"/>
+</glossary>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<questions xmlns="www.rapidintake.com/xmlgrammars/fc/quiz">
+	<quiz passComplete="false" failIncomplete="false" print_results="false" email_results="false" LMS_name="false" showresults="true" quizmode="review" randomize="false" numquestions="5" recordStatus="none" incReview="false" incRetakeButton="false" number_questions="false" intro="intro" id="[Enter New Quiz ID]-1">
+		<question id="q1" tracking="true" weight="1" correctResp="true" overrideFeedback="false" qtype="TF">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">The sky is blue</FONT></P>]]></questionText>
+		</question>
+		<question id="q2" tracking="true" weight="1" overrideFeedback="false" qtype="MCAUDIO">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Choose an option</FONT></P>]]></questionText>
+			<distractors randomize="true">
+				<distractor correct="false" wrap="false" filePath="media/brahms2.mp3"><![CDATA[Option one]]></distractor>
+				<distractor correct="false" wrap="false" filePath="media/incoming_calls5.mp3"><![CDATA[Options Two]]></distractor>
+			</distractors>
+		</question>
+		<question id="q3" tracking="true" weight="1" exactMatch="false" caseSensitive="false" otherRespCorrect="false" overrideFeedback="false" qtype="FB">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">What color is the sky?</FONT></P>]]></questionText>
+			<responses>
+				<response correct="true"><![CDATA[blue]]></response>
+			</responses>
+		</question>
+		<question id="q4" tracking="true" weight="1" resetBtn="true" overrideFeedback="false" qtype="DDNUM">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Put the steps in order</FONT></P>]]></questionText>
+			<dragobjects randomize="true">
+				<textelement matchelement="1"><![CDATA[Step 1]]></textelement>
+				<textelement matchelement="2"><![CDATA[Step 2]]></textelement>
+				<textelement matchelement="3"><![CDATA[Step 3]]></textelement>
+				<textelement matchelement="4"><![CDATA[Step 4]]></textelement>
+			</dragobjects>
+		</question>
+		<question id="q5" tracking="true" weight="1" resetBtn="true" target1="BYU" target2="UTAH" draghead="Items" overrideFeedback="false" qtype="DDTASK">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Put these in the corerct categories</FONT></P>]]></questionText>
+			<dragobjects randomize="true">
+				<textelement matchelement="BYU"><![CDATA[Blue]]></textelement>
+				<textelement matchelement="Utah"><![CDATA[Red]]></textelement>
+				<textelement matchelement="BYU"><![CDATA[Cougar]]></textelement>
+				<textelement matchelement="Utah"><![CDATA[Ute]]></textelement>
+			</dragobjects>
+		</question>
+	</quiz>
+	<quiz passComplete="false" failIncomplete="false" print_results="false" email_results="false" LMS_name="false" showresults="true" quizmode="review" randomize="false" numquestions="5" recordStatus="none" incReview="false" incRetakeButton="false" number_questions="false" intro="intro" id="[Enter New Quiz ID]-1">
+		<question id="q1" tracking="true" weight="1" correctResp="true" overrideFeedback="false" qtype="TF">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">The sky is blue</FONT></P>]]></questionText>
+		</question>
+		<question id="q2" tracking="true" weight="1" overrideFeedback="false" qtype="MCAUDIO">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Choose an option</FONT></P>]]></questionText>
+			<distractors randomize="true">
+				<distractor correct="false" wrap="false" filePath="media/brahms2.mp3"><![CDATA[Option one]]></distractor>
+				<distractor correct="false" wrap="false" filePath="media/incoming_calls5.mp3"><![CDATA[Options Two]]></distractor>
+			</distractors>
+		</question>
+		<question id="q3" tracking="true" weight="1" exactMatch="false" caseSensitive="false" otherRespCorrect="false" overrideFeedback="false" qtype="FB">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">What color is the sky?</FONT></P>]]></questionText>
+			<responses>
+				<response correct="true"><![CDATA[blue]]></response>
+			</responses>
+		</question>
+		<question id="q4" tracking="true" weight="1" resetBtn="true" overrideFeedback="false" qtype="DDNUM">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Put the steps in order</FONT></P>]]></questionText>
+			<dragobjects randomize="true">
+				<textelement matchelement="1"><![CDATA[Step 1]]></textelement>
+				<textelement matchelement="2"><![CDATA[Step 2]]></textelement>
+				<textelement matchelement="3"><![CDATA[Step 3]]></textelement>
+				<textelement matchelement="4"><![CDATA[Step 4]]></textelement>
+			</dragobjects>
+		</question>
+		<question id="q5" tracking="true" weight="1" resetBtn="true" target1="BYU" target2="UTAH" draghead="Items" overrideFeedback="false" qtype="DDTASK">
+			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Put these in the corerct categories</FONT></P>]]></questionText>
+			<dragobjects randomize="true">
+				<textelement matchelement="BYU"><![CDATA[Blue]]></textelement>
+				<textelement matchelement="Utah"><![CDATA[Red]]></textelement>
+				<textelement matchelement="BYU"><![CDATA[Cougar]]></textelement>
+				<textelement matchelement="Utah"><![CDATA[Ute]]></textelement>
+			</dragobjects>
+		</question>
+	</quiz>
+</questions>

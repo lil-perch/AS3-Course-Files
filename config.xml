@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+	<width>955</width>
+    <height>565</height>
+	<!--Path Information-->
+	<filepaths>
+		<courselogo>swfs/course_logo.swf</courselogo>
+		<scoxml>xml/sco.xml</scoxml>
+		<quizxml>xml/quiz.xml</quizxml>
+		<glossaryxml>xml/glossary.xml</glossaryxml>
+		<toclocation>swfs/toc.swf</toclocation>
+		<mediacontrol>swfs/media_control.swf</mediacontrol>
+		<glossaryswf>swfs/glossary.swf</glossaryswf>
+		<glossaryterm>swfs/glossary_terms.swf</glossaryterm>
+		<glossarycss>xml/css/glossary.css</glossarycss>
+		<narrationswf>swfs/narration.swf</narrationswf>
+		<narrationcss>xml/css/narration.css</narrationcss>
+		<noteicon>swfs/pagetemplates/hint_icon.swf</noteicon>
+		<tipicon>swfs/pagetemplates/tip_icon.swf</tipicon>
+		<warningicon>swfs/pagetemplates/warning_icon.swf</warningicon>
+		<as2loader>swfs/ri_as2_loader.swf</as2loader>
+	</filepaths>
+	<!--Settings Information-->
+	<coursesettings>
+		<!--Main Course Settings-->
+		<useinterfacecolors>false</useinterfacecolors>
+		<detatchedmenu>flase</detatchedmenu>
+		<presentsizeh>570</presentsizeh>
+		<presentsizew>960</presentsizew>
+		<mediaplayerspace>0</mediaplayerspace>
+		<masklocationx>27</masklocationx>
+		<masklocationy>105</masklocationy>
+		<showpagetitle>true</showpagetitle>
+		<autonavlatency>2</autonavlatency><!--Only integer is allowed-->
+		<!--Index Settings-->
+		<indexlocx>4</indexlocx><!--Only integer is allowed-->
+		<indexlocy>80</indexlocy><!--Only integer is allowed-->
+		<indexwidth>240</indexwidth><!--Only integer is allowed-->
+		<indexheight>482</indexheight><!--Where the sliding index ends--><!--Only integer is allowed-->
+		<indexendx>30</indexendx><!--Only integer is allowed-->
+		<movejusttopictext>true</movejusttopictext>
+		<leftjustifiedhighlight>true</leftjustifiedhighlight>
+		<indexeasing>Strong.easeOut</indexeasing>
+		<easingtime>1.5</easingtime>
+		<!--Glossary Settings-->
+		<lettermenux>67</lettermenux><!--Only integer is allowed-->
+		<lettermenuy>40</lettermenuy><!--Only integer is allowed-->
+		<spacebetweenmenu>12</spacebetweenmenu><!--Only integer is allowed-->
+	</coursesettings>
+	<!--Style Information-->
+	<styleinfo>
+		<!--Index Style Info-->
+		<indextopiccolor>0xcccccc</indextopiccolor>
+		<indexpagecolor>0x000000</indexpagecolor>
+		<indexovercolor>0xff0000</indexovercolor>
+		<indexdiscolor>0x777777</indexdiscolor>
+		<highlightindexcolor>0xFFFFFF</highlightindexcolor>
+		<!--Glossary Style Info-->
+		<menucolor>0xFFFFFF</menucolor>
+		<menuovercolor>0xCCCCCC</menuovercolor>
+		<menuoverunderline>true</menuoverunderline>
+		<termcolor>0x000000</termcolor>
+		<termovercolor>0xCCCCCC</termovercolor>
+		<termsize>14</termsize>
+		<termstyle>none</termstyle>
+		<termmargin>12</termmargin>
+		<lettersize>14</lettersize>
+		<letterstyle>bold</letterstyle>
+		<lettercolor>0x333333</lettercolor>
+		<lettermargin>2</lettermargin>
+	</styleinfo>
+</config>
