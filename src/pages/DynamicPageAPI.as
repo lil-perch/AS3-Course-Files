@@ -2,12 +2,15 @@ package src.pages
 {
 	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
+	import flash.events.Event;
 	import flash.text.StyleSheet;
 	import flash.xml.*;
 	
 	import src.CourseModel;
+	import src.LmsCom;
 	import src.Model;
 	import src.SettingsModel;
+	import src.classes.InfoPanel;
 	
 
 	public class DynamicPageAPI extends MovieClip
@@ -27,6 +30,8 @@ package src.pages
 		private var _preloader:MovieClip;
 		private var _settingsModel:SettingsModel;
 		private var _controlContainer:MovieClip;
+		private var _lmsCom:LmsCom;
+		private var _infoPanel:InfoPanel;
 		
 		public function DynamicPageAPI()
 		{
@@ -39,6 +44,14 @@ package src.pages
 		public function loadPage():void
 		{
 			
+		}
+		
+		//IF YOU WANT TO DO SOMETHING WHEN PAGE IS CHANGED, OVERRIDE THIS METHOD
+		//MAKE SURE TO INCLUDE THE REMOVE LISTENER -- Requires import src.Model and flash.events.Event; in the custom class.
+		public function changingPage(e:Event):void
+		{
+			trace("Changing page fired from DynamicPageAPI");
+			courseModel.removeEventListener(Model.MODEL_CHANGE, changingPage);
 		}
 		
 		public function set currentPageTag(n:XML):void
@@ -112,6 +125,19 @@ package src.pages
 		public function set courseModel(m:CourseModel):void
 		{
 			_courseModel = m;
+			_lmsCom = m.lmsLink;
+			_infoPanel = m.feedbackPanel;
+			_courseModel.addEventListener(Model.MODEL_CHANGE, changingPage);
+		}
+		
+		public function get lmsLink():LmsCom
+		{
+			return _lmsCom;
+		}
+		
+		public function get infoPanel():InfoPanel
+		{
+			return _infoPanel;
 		}
 		
 		//public function loadImage():
@@ -137,5 +163,7 @@ package src.pages
 		{
 			return _controlContainer;
 		}
+		
+		
 	}
 }
