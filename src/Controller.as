@@ -19,9 +19,9 @@ package src
 		{
 			if (e)
 			{
-				if (e.target.enabled) model.changePage(model.currentIndex + 1);
+				if (e.target.enabled) model.changePage(1);
 			} else {
-				model.changePage(model.currentIndex + 1);
+				model.changePage(1);
 			}
 		}
 		
@@ -29,9 +29,9 @@ package src
 		{
 			if (e)
 			{
-				if (e.target.enabled) model.changePage(model.currentIndex - 1);
+				if (e.target.enabled) model.changePage(-1);
 			} else {
-				model.changePage(model.currentIndex - 1);
+				model.changePage(-1);
 			}
 		}
 		

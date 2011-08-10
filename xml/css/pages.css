@@ -99,3 +99,32 @@
 	color:#000000;
 	text-align:center;
 }
+
+/* Review Page CSS */
+
+.correctmark {
+	font-style: italic;
+	font-size: 16px;
+	color: #00ff00;
+}
+
+.incorrectmark {
+	font-weight: bold;
+	font-size: 16px;
+	color: #ff0000;
+}
+
+.questionnum {
+	font-style: italic;
+}
+
+.questionreview {
+	font-style: italic;
+	color: #999999;
+}
+
+.categories {
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration: underline; 
+}

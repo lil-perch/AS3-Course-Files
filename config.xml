@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <config>
-	<width>955</width>
+	<width>950</width>
     <height>565</height>
 	<!--Path Information-->
 	<filepaths>
@@ -19,14 +19,15 @@
 		<tipicon>swfs/pagetemplates/tip_icon.swf</tipicon>
 		<warningicon>swfs/pagetemplates/warning_icon.swf</warningicon>
 		<as2loader>swfs/ri_as2_loader.swf</as2loader>
+		<pagecss>xml/css/pages.css</pagecss>
 	</filepaths>
 	<!--Settings Information-->
 	<coursesettings>
 		<!--Main Course Settings-->
 		<useinterfacecolors>false</useinterfacecolors>
-		<detatchedmenu>flase</detatchedmenu>
-		<presentsizeh>570</presentsizeh>
-		<presentsizew>960</presentsizew>
+		<detatchedmenu>false</detatchedmenu>
+		<presentsizeh>565</presentsizeh>
+		<presentsizew>950</presentsizew>
 		<mediaplayerspace>0</mediaplayerspace>
 		<masklocationx>27</masklocationx>
 		<masklocationy>105</masklocationy>
@@ -46,6 +47,8 @@
 		<lettermenux>67</lettermenux><!--Only integer is allowed-->
 		<lettermenuy>40</lettermenuy><!--Only integer is allowed-->
 		<spacebetweenmenu>12</spacebetweenmenu><!--Only integer is allowed-->
+		<!--Quiz Settings-->
+		<reviewmargin>50</reviewmargin><!--The space around the review window. Top and bottom and left and right.-->
 	</coursesettings>
 	<!--Style Information-->
 	<styleinfo>
@@ -68,5 +71,9 @@
 		<letterstyle>bold</letterstyle>
 		<lettercolor>0x333333</lettercolor>
 		<lettermargin>2</lettermargin>
+		<!--Quiz Style Information--Quiz also uses some CSS-->
+		<distractorfont>Arial</distractorfont>
+		<distractorfontsize>12</distractorfontsize>
+		<distractorfontcolor>0x000000</distractorfontcolor>
 	</styleinfo>
 </config>

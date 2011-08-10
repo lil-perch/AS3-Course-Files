@@ -11,7 +11,8 @@ package src.AssetClasses
 		private var _doToolTip:Boolean;
 		private var _selected:Boolean;
 		private var _highlightChange:Boolean; //Will mouseover color be different because it is highlighted.
-		private var _index:int;
+		private var _index:int;						// Index for keeping track of page among all pages (even those not showig in the TOC).
+		private var _arrayIndex:int;				//Index for keeping track of page in visited array and selected array
 		private var _toc:Toc;
 		private var _visited:String; 			// Either a "1" (visited) or a "0" (not visited).
 		private var _selectValue:String;			// Either a "1" (able to be selected) or a "0" (can't select it)
@@ -30,7 +31,7 @@ package src.AssetClasses
 			if (_selectable)
 			{
 				var idx:int = this.index;
-				_toc.courseModel.changePage(idx);
+				_toc.courseModel.changeNormalPage(idx);
 			}
 		}
 		
@@ -158,6 +159,16 @@ package src.AssetClasses
 		public function get selectValue():String
 		{
 			return _selectValue;
+		}
+		
+		public function set arrayIndex(i:int):void
+		{
+			_arrayIndex = i;
+		}
+		
+		public function get arrayIndex():int
+		{
+			return _arrayIndex;
 		}
 	}
 }

@@ -132,16 +132,25 @@ package src
 			trace("THE SCO.XML FILE HAS LOADED:");
 			playerModel.removeEventListener(Model.MODEL_LOADED,courseXMLLoaded);
 			
-			quizModel = new QuizModel(_coursePreloader);
+			/*quizModel = new QuizModel(_coursePreloader);
 			var quizxml:String = settingsModel.paths.quizXML;
 			//Make sure the XML isn't cached.
 			_cacheString = _processData.getSkipCacheString(_playingLocally);
 			if (_cacheString == null) _cacheString = "";
 			quizModel.load(new URLRequest(quizxml + _cacheString));
-			quizModel.addEventListener(Model.MODEL_LOADED,quizXMLLoaded);
+			quizModel.addEventListener(Model.MODEL_LOADED,quizXMLLoaded);*/
+			
+			glossaryModel = new GlossaryModel(_coursePreloader);
+			var glossxml:String = settingsModel.paths.glossaryXML;
+			//Make sure the XML isn't cached.
+			_cacheString = _processData.getSkipCacheString(_playingLocally);
+			if (_cacheString == null) _cacheString = "";
+			glossaryModel.load(new URLRequest(glossxml + _cacheString));
+			glossaryModel.addEventListener(Model.MODEL_LOADED,glossaryXMLLoaded);
 		}
 		
-		private function quizXMLLoaded(e:Event):void
+		//Loading the quiz.xml file is no longer required.
+		/*private function quizXMLLoaded(e:Event):void
 		{
 			quizModel.removeEventListener(Model.MODEL_LOADED,quizXMLLoaded);
 			trace("THE QUIZ.XML FILE HAS LOADED:");
@@ -152,7 +161,7 @@ package src
 			if (_cacheString == null) _cacheString = "";
 			glossaryModel.load(new URLRequest(glossxml + _cacheString));
 			glossaryModel.addEventListener(Model.MODEL_LOADED,glossaryXMLLoaded);
-		}
+		}*/
 		
 		private function glossaryXMLLoaded(e:Event):void
 		{
@@ -223,7 +232,7 @@ package src
 			
 			tocMask_mc.x = settingsModel.settings.maskLocationX;
 			tocMask_mc.y = settingsModel.settings.maskLocationY;
-			contentMask_mc.x = settingsModel.settings.maskLocationX;
+			contentMask_mc.x = presentation.x;
 			contentMask_mc.y = settingsModel.settings.maskLocationY;
 			tocMask_mc.width = settingsModel.settings.presentSizeW;
 			tocMask_mc.height = settingsModel.settings.presentSizeH;
@@ -247,7 +256,7 @@ package src
 			//Glossary
 			glossaryView = new GlossaryView(glossary_mc,settingsModel.paths,settingsModel.settings,settingsModel.styles,glossaryModel,playerModel); //Pass in glossary movie clip, paths data, glossary model and course model.
 			//Load the FIRST PAGE.
-			playerModel.changePage(playerModel.currentIndex);
+			playerModel.changePage(0);
 			//Remove the course preloader.
 			if (_coursePreloader) _coursePreloader.parent.removeChild(_coursePreloader);
 		}

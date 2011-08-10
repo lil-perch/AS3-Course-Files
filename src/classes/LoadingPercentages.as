@@ -4,9 +4,9 @@ package src.classes
 	{
 		private var _coureFlaEndPoint:Number 	= 	.3;
 		private var _settingsModel:Number 		= 	.02;
-		private var _courseModel:Number 		= 	.05;
+		private var _courseModel:Number 		= 	.10;
 		private var _loadingScorm:Number 		= 	.32;
-		private var _quizModel:Number 			= 	.05;
+		private var _quizModel:Number 			= 	.0;	//No longer loads a quiz model.
 		private var _glossaryModel:Number 		= 	.03;
 		private var _views:Number 				=	.01;
 		private var _narrationView:Number		=	.08

@@ -23,6 +23,7 @@ package src.classes
 		private var _indexeasing:String;
 		private var _easingtime:Number;
 		private var _autonavlatency:int;						//Used to determine how long to pause between pages when using auto Navigation.
+		private var _reviewmargin:uint;							//Space around the review dialog box in a quiz.
 		
 		
 		public function Settings()
@@ -239,6 +240,16 @@ package src.classes
 		public function get autoNavLatency():int
 		{
 			return _autonavlatency;
+		}
+		
+		public function set reviewMargin(x:uint):void
+		{
+			_reviewmargin = x;
+		}
+		
+		public function get reviewMargin():uint
+		{
+			return _reviewmargin;
 		}
 	}
 }

@@ -17,6 +17,7 @@ package src.classes
 		private var _tipicon:String;
 		private var _warningicon:String;
 		private var _as2loader:String;				//Path to as2 loader SWF for loading AS2 movies
+		private var _pagecss:String					//Path to CSS for pages including quiz files
 		
 		public function Path()
 		{
@@ -174,6 +175,15 @@ package src.classes
 			return _as2loader;
 		}
 		
+		public function set pageCSS(x:String):void
+		{
+			_pagecss = x;
+		}
+		
+		public function get pageCSS():String
+		{
+			return _pagecss;
+		}
 		
 	}
 }

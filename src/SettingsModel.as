@@ -64,6 +64,7 @@ package src
 			paths.tipIcon					=	_settings.filepaths.tipicon;
 			paths.warningIcon				=	_settings.filepaths.warningicon;
 			paths.as2Loader					=	_settings.filepaths.as2loader;
+			paths.pageCSS					=	_settings.filepaths.pagecss;
 
 			settings.useInterfaceColors 	= 	(_settings.coursesettings.useinterfacecolors.toLowerCase() =="true");
 			settings.detatchedMenu			= 	(_settings.coursesettings.detatchedmenu.toLowerCase() == "true");
@@ -86,6 +87,7 @@ package src
 			settings.indexEasing			=	_settings.coursesettings.indexeasing;
 			settings.easingTime				=	Number(_settings.coursesettings.easingtime);
 			settings.autoNavLatency			=	Number(_settings.coursesettings.autonavlatency);
+			settings.reviewMargin			=	Number(_settings.coursesettings.reviewmargin);
 			
 			styles.xTopicColor 				= 	parseInt(_settings.styleinfo.indextopiccolor,16);
 			styles.xPgColor 				= 	parseInt(_settings.styleinfo.indexpagecolor,16);
@@ -104,6 +106,9 @@ package src
 			styles.letterSize				= 	Number(_settings.styleinfo.lettersize);
 			styles.letterStyle				=	_settings.styleinfo.letterstyle;
 			styles.letterMargin				=	Number(_settings.styleinfo.lettermargin);
+			styles.distractorFont			=	_settings.styleinfo.distractorfont;
+			styles.distractorFontColor		=	parseInt(_settings.styleinfo.distractorfontcolor,16);
+			styles.distractorFontSize		=	Number(_settings.styleinfo.distractorfontsize);
 			
 			dispatchEvent(new Event(Model.MODEL_LOADED));
 		}

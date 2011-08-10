@@ -1,16 +1,16 @@
 package src.classes
 {
+	import fl.controls.ScrollBarDirection;
+	import fl.controls.UIScrollBar;
+	
+	import flash.display.Graphics;
+	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.display.Stage;
-	import flash.display.Shape;
-	import flash.text.TextField;
-	import flash.text.TextFormat;
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
-	import flash.display.Graphics;
-	
-	import fl.controls.UIScrollBar;
-	import fl.controls.ScrollBarDirection;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	import src.com.Alerts;
 
@@ -80,6 +80,7 @@ package src.classes
 			
 			dialog.addEventListener(MouseEvent.MOUSE_DOWN,startDragging);
 			dialog.addEventListener(MouseEvent.MOUSE_UP,stopDragging);
+			//theStage.addChild(this);
 		}
 		
 		private function startDragging(e:MouseEvent):void
@@ -102,6 +103,12 @@ package src.classes
 		public function updatePanel(info:String):void
 		{
 			txtField.text = txtField.text + "\n----------------------------------------------------------\n" + info;
+			vScrollBar.update();
+		}
+		
+		public function addToPreviousUpdate(info:String):void
+		{
+			txtField.text = txtField.text + "\n" + info;
 			vScrollBar.update();
 		}
 		

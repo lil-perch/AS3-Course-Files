@@ -19,6 +19,9 @@ package src.classes
 		private var _letterStyle:String;
 		private var _letterColor:uint;
 		private var _letterMargin:int;
+		private var _distractorFont:String;					//Font used for styling the distractors in quiz questions
+		private var _distractorFontSize:int;				//Size of font used for distractors in quiz questions
+		private var _distractorFontColor:uint;				//Color of font used for distractors in quiz questions
 		
 		public function Style()
 		{
@@ -194,6 +197,36 @@ package src.classes
 		public function get termMargin():int
 		{
 			return _termMargin;
+		}
+		
+		public function set distractorFont(s:String):void
+		{
+			_distractorFont = s;
+		}
+		
+		public function get distractorFont():String
+		{
+			return _distractorFont;
+		}
+		
+		public function set distractorFontSize(c:int):void
+		{
+			_distractorFontSize = c;
+		}
+		
+		public function get distractorFontSize():int
+		{
+			return _distractorFontSize;
+		}
+		
+		public function set distractorFontColor(c:uint):void
+		{
+			_distractorFontColor = c;
+		}
+		
+		public function get distractorFontColor():uint
+		{
+			return _distractorFontColor;
 		}
 	}
 }

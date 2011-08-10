@@ -37,3 +37,32 @@ function PreGetInteractionLearnerResponsesChoice(strID)
 	}
 	return newArray;
 }
+
+//Records Multiple Correct interaction. Converts learner Response and correct response to object and places in an array.
+function PreRecordMultipleCorrectInteraction(strID,lResponse,blnCorrect,cResponse,description,weight,latency,objectiveID)
+{
+	var newLResp = new Array();
+	var newCResp = new Array();
+	
+	for (var i = 0;i<lResponse.length();i++)
+	{
+		var tmp:Array = lResponse[i].split("^");
+		var lObj = CreateResponseIdentifier(tmp[0],tmp[1]);
+		newLResp[i] = lObj;
+	}
+	
+	for (var j = 0;j<cResponse.length();j++)
+	{
+		var tmp2:Array = cResponse[j].split("^");
+		var cObj = CreateResponseIdentifier(tmp2[0],tmp2[1])
+		newCResp[j] = cObj;
+	}
+	
+	
+	RecordMultipleChoiceInteraction(strID,newLResp,blnCorrect,newCResp,description,weight,latency,objectiveID);
+}
+
+function GetCommunicationStandard()
+{
+	return objLMS.Standard;
+}
