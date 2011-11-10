@@ -33,14 +33,9 @@ package src.pages.quiz
 		public var showresults:Boolean = true;		//Will the quiz display results.
 		public var incRetakeButton:Boolean = false;	//Will the learner be able to retake the quiz
 		public var includeIntro:Boolean = false;	//Will an intro page be include for the quiz.
-		public var useServer:Boolean = false;		//If emailing results, should the course use a server to do so.
-		public var serverURL:String;				//URL of server to use for sending email.
-		public var LMS_name:Boolean = false;		//Should the learners name be retrieved from the LMS for the quiz email.
-		public var incQuizTitle:Boolean = false;	//Should the title of the quiz be included in the email
-		public var emailSubject:String;				//Subject of the email
-		public var sendToEmail:String;				//Email address where email is sent.
 		public var scoreRecorded:Boolean = false;	//False if the score has not been computed and recorded for this quiz
 		public var statusRecorded:Boolean = false;	//False if the lesson status has not been recorded for the quiz.
+		public var restrictBackwardNav:Boolean = false; //If set to true the learner will not be able to navigate backwards.
 		
 		public static const SCORE_COMPUTED:String = "scoreComputed";
 		
@@ -143,17 +138,12 @@ package src.pages.quiz
 			
 			if (curPage.@passingScore.length() > 0)	passingScore = Number(curPage.@passingScore);
 			if (curPage.@showresults.length() > 0)	showresults = (curPage.@showresults.toLowerCase() == "true");
+			if (curPage.@restrictBack.length() > 0) restrictBackwardNav = (curPage.@restrictBack.toLowerCase() == "true");
 			
 			//The following may be included on the results page now.
 			
-			if (curPage.@incRetakeButton.length() > 0)	incRetakeButton = (curPage.@incRetakeButton.toLowerCase() == "true");
 			if (curPage.@includeIntro.length() > 0)	includeIntro = (curPage.@includeIntro.toLowerCase() == "true");
-			if (curPage.@useServer.length() > 0)	useServer = (curPage.@useServer.toLowerCase() == "true");
-			if (curPage.@serverURL.length() > 0)	serverURL = curPage.@serverURL
-			if (curPage.@LMS_name.length() > 0)	LMS_name = (curPage.@LMS_name.toLowerCase() == "true");
-			if (curPage.@incQuizTitle.length() > 0)	incQuizTitle = (curPage.@incQuizTitle.toLowerCase() == "true");
-			if (curPage.@emailSubject.length() > 0)	emailSubject = curPage.@emailSubject
-			if (curPage.@sendToEmail.length() > 0)	sendToEmail = curPage.@sendToEmail
+			
 			
 			quizIsComplete = false;
 		}

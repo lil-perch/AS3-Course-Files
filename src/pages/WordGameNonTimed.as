@@ -51,7 +51,8 @@
 		}
 
 		override public function loadPage():void
-		{	
+		{
+			trace("LOAD PAGE WOIRD")
 			default xml namespace = "www.rapidintake.com/xmlgrammars/fc/sco";
 
 			addFrameScript(0, addFrame1);
@@ -282,12 +283,19 @@
 			TweenMax.to(lock_mc,0.3,{alpha:0, onComplete:doLoadText});							
 		}
 
-		private function doLoadText()
-		{			
+		function doLoadText()
+		{
+			
 			lock_mc.visible = false;	
-			stage.focus = input_mc.input_txt;
-		}		
+			addEventListener(Event.ADDED_TO_STAGE,onAdded);
+			
+
+		}
 		
+		function onAdded(e:Event)
+		{			
+			stage.focus = input_mc.input_txt;						
+		}
 
 		private function doSubmit(_ref:MovieClip)
 		{
@@ -582,39 +590,7 @@
 		
 		
 		
-		function recordInteraction()
-		{
-			
-			if("@trackInteraction" in currentPageTag != false)
-			{
-				if (currentPageTag.@trackInteraction.toLowerCase() == "true")
-				{
-					var isAvailable:Boolean = ExternalInterface.available;
-				
-					if (isAvailable)
-					{
-						intCnt = ExternalInterface.call("SCOGetValue","cmi.interactions._count");
-						intStr = "cmi.interactions." + intCnt + ".";
-					}
-					
-					intID = new Timer(250);
-					intID.start();
-					intID.addEventListener(TimerEvent.TIMER, timerHandler);
-					intID.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);												
-				}
-			}
 		
-		
-			if("@recordScore" in currentPageTag != false)
-			{
-				if (currentPageTag.@recordScore.toLowerCase() == "true")
-				{
-					var sResult:Number = (Math.round((score/total * 10000000)))/10000000;
-					trace(0 + " - " + total + " - " + score + " - " + sResult);																
-					courseModel.lmsLink.apiSetScore(0,total,score,String(sResult));
-				}
-			}
-		}
 		
 		private function timerHandler(e:TimerEvent):void
 		{
@@ -631,41 +607,34 @@
 		
 		function sendData()
 		{
-			var description;
+			var description:String;
 			var sData;
 			if (objCnt < objGame.length)
 			{
 				if (objCnt > 0)
 				{
-					if (courseModel.courseAttributes.tracking == "SCORM1.3")
-					{
-						description = objGame[objCnt - 1].descript;
-						if (description !== undefined && description != "" && description != " ")
-						{
-							sData = intStr + "description";
-							trace("Desc: " + sData + " - " + description);							
-							courseModel.lmsLink.apiSetValue(sData,description);
-						}
-						intCnt++;
-						intStr = "cmi.interactions." + intCnt + ".";
-					}
+					description = objGame[objCnt - 1].descript;
 				}
+				
 				if (objGame[objCnt].latency == undefined)
 				{
 					objGame[objCnt].latency = 0;
-				}
-				var sTime:String = getLatency(objGame[objCnt].latency);
+				}				
+				var sTime:uint = objGame[objCnt].latency;
 				//trace(sTime);
 				var sId:String = currentPageTag.@interactionID + objCnt;
 				var sWeight:Number = 1;
-				var sResult;
+				var sResult:String;
+				var correct:Boolean;
 				if (objGame[objCnt].guess)
 				{
 					sResult = "C";
+					correct = true;
 				}
 				else
 				{
 					sResult = "W";
+					correct = false;
 				}
 				var sType:String = "fill-in";
 				var sResponse:String = escape(objGame[objCnt].useranswer);
@@ -681,70 +650,52 @@
 				//playerMain_mc.apiSetInteraction(sId,sType,sResponse,sCorrect,sResult,sWeight,sTime);
 		
 				var intData = dateStamp + ";" + timeStamp + ";" + sId + ";" + "" + ";" + sType + ";" + sCorrect + ";" + sResponse + ";" + sResult + ";" + sWeight + ";" + sTime;
-				trace(intData);				
-				var errmsg = ExternalInterface.call("MM_cmiSendInteractionInfo", intData);
-		
+				trace(intData);								
+				var emsg:String = courseModel.lmsLink.apiSendFillInBlankData(sId,sResponse,correct,sCorrect,description,sWeight,sTime,"");
+					
+					//ExternalInterface.call("MM_cmiSendInteractionInfo", intData);
+					
 				objCnt++;
 		
 			}
 			else
 			{							
 				intID.stop();
-				if (courseModel.courseAttributes.tracking == "SCORM1.3")
-				{
-					description = objGame[objCnt - 1].descript;
-					if (description !== undefined && description != "" && description != " ")
-					{
-						sData = intStr + "description";
-						trace("Desc: " + sData + " - " + description);												
-						courseModel.lmsLink.apiSetValue(sData,description);
-					}
-					intCnt++;
-					intStr = "cmi.interactions." + intCnt + ".";
-				}				
+
 				courseModel.lmsLink.apiSendCommit();
 				
 			}
 		}
 		
 			
-		
-		
-		
-		function getLatency(timeInSec)
+		function recordInteraction()
 		{
-			var l_seconds, l_minutes, l_hours, timeInHours;
+			
+			if("@trackInteraction" in currentPageTag != false)
+			{
+				if (currentPageTag.@trackInteraction.toLowerCase() == "true")
+				{					
+					
+					intID = new Timer(250);
+					intID.start();
+					intID.addEventListener(TimerEvent.TIMER, timerHandler);
+					intID.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);												
+				}
+			}
 		
-			if (timeInSec <= 9)
+		
+			if("@recordScore" in currentPageTag != false)
 			{
-				l_seconds = "0" + timeInSec;
-				l_minutes = "00";
-				l_hours = "00";
+				if (currentPageTag.@recordScore.toLowerCase() == "true")
+				{					
+					trace(0 + " - " + total + " - " + score);						
+					courseModel.lmsLink.apiSendScoreData(score,total,0)
+				}
 			}
-			else
-			{
-				l_seconds = timeInSec;
-				l_minutes = "00";
-				l_hours = "00";
-			}
-			if (l_seconds > 59)
-			{
-				l_minutes = int(l_seconds / 60);
-				l_minutes = formatNum(l_minutes);
-				l_seconds = l_seconds - (l_minutes * 60);
-				l_seconds = formatNum(l_seconds);
-				l_hours = "00";
-			}
-			if (l_minutes > 59)
-			{
-				l_hours = int(l_minutes / 60);
-				l_hours = formatNum(l_hours);
-				l_minutes = l_minutes - (l_hours * 60);
-				l_minutes = formatNum(l_minutes);
-			}
-			timeInHours = l_hours + ":" + l_minutes + ":" + l_seconds;
-			return timeInHours;
 		}
+		
+		
+		
 		
 	}
 

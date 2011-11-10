@@ -1,20 +1,22 @@
 ﻿package src.pages
 {
-	import src.pages.DynamicPageAPI;
-	import flash.ui.*;
-	import flash.events.*;
-	import flash.display.MovieClip;
-	import flash.net.URLLoader;
-	import flash.net.URLRequest;
-	import flash.events.Event;
-	import flash.media.Sound;
-	import flash.utils.*;
 	import com.greensock.*;
 	import com.greensock.easing.*;
-	import src.pages.utils.*;
-	import flash.external.ExternalInterface;
+	
 	import flash.display.Loader;
+	import flash.display.MovieClip;
+	import flash.events.*;
+	import flash.events.Event;
+	import flash.external.ExternalInterface;
+	import flash.media.Sound;
 	import flash.media.SoundChannel;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
+	import flash.ui.*;
+	import flash.utils.*;
+	
+	import src.pages.DynamicPageAPI;
+	import src.pages.utils.*;
 
 	public class WordGameTimed extends DynamicPageAPI
 	{
@@ -291,12 +293,12 @@
 
 		function doPlay()
 		{
-			
-			
+			stage.focus = input_mc.input_txt;						
 			play();
-			stage.focus = input_mc.input_txt;			
+			
 		}
 
+		
 
 
 		function prepareGame()
@@ -390,9 +392,18 @@
 		{
 			
 			lock_mc.visible = false;	
-			stage.focus = input_mc.input_txt;
+			addEventListener(Event.ADDED_TO_STAGE,onAdded);
+			
 
 		}
+		
+		function onAdded(e:Event)
+		{			
+			stage.focus = input_mc.input_txt;						
+		}
+		
+		
+		
 		function doCount(_time)
 		{
 			submit_btn.mouseEnabled = true;
@@ -803,11 +814,11 @@
 		
 		function sendData()
 		{
-			var description;
+			var description:String;
 			var sData;
 			if (objCnt < objGame.length)
 			{
-				if (objCnt > 0)
+				/*if (objCnt > 0)
 				{
 					if (courseModel.courseAttributes.tracking == "SCORM1.3")
 					{
@@ -821,26 +832,36 @@
 						intCnt++;
 						intStr = "cmi.interactions." + intCnt + ".";
 					}
+				}*/
+				
+								
+				if (objCnt > 0)
+				{
+					description = objGame[objCnt - 1].descript;
 				}
 																														
 				if (objGame[objCnt].latency == undefined)
 				{
 					objGame[objCnt].latency = 0;
 				}
-				var sTime:String = getLatency(objGame[objCnt].latency);
+				var sTime:uint = objGame[objCnt].latency;
 				//trace(sTime);
 				var sId:String = currentPageTag.@interactionID + objCnt;
 				var sWeight:Number = objGame[objCnt].point;
 				
-				var sResult;
+				var sResult:String;
+				var correct:Boolean;
 				if (objGame[objCnt].guess)
 				{
 					sResult = "C";
+					correct = true;
 				}
 				else
 				{
 					sResult = "W";
+					correct = false;
 				}
+				
 				var sType:String = "fill-in";
 				var sResponse:String = escape(objGame[objCnt].useranswer);
 				//trace("sResponse " + sResponse);
@@ -855,14 +876,16 @@
 				//playerMain_mc.apiSetInteraction(sId,sType,sResponse,sCorrect,sResult,sWeight,sTime);
 		
 				var intData = dateStamp + ";" + timeStamp + ";" + sId + ";" + "" + ";" + sType + ";" + sCorrect + ";" + sResponse + ";" + sResult + ";" + sWeight + ";" + sTime;
-				trace(intData);				
-				var errmsg = ExternalInterface.call("MM_cmiSendInteractionInfo", intData);		
+				trace(intData);		
+				var emsg:String = courseModel.lmsLink.apiSendFillInBlankData(sId,sResponse,correct,sCorrect,description,sWeight,sTime,"");
+					
+					//ExternalInterface.call("MM_cmiSendInteractionInfo", intData);		
 				objCnt++;		
 			}
 			else
 			{							
 				intID.stop();
-				if (courseModel.courseAttributes.tracking == "SCORM1.3")
+				/*if (courseModel.courseAttributes.tracking == "SCORM1.3")
 				{
 					description = objGame[objCnt - 1].descript;
 					if (description !== undefined && description != "" && description != " ")
@@ -873,7 +896,7 @@
 					}
 					intCnt++;
 					intStr = "cmi.interactions." + intCnt + ".";
-				}				
+				}	*/			
 				courseModel.lmsLink.apiSendCommit();
 				
 			}
@@ -881,7 +904,7 @@
 		
 					
 		
-		function getLatency(timeInSec)
+		/*function getLatency(timeInSec)
 		{
 			var l_seconds, l_minutes, l_hours, timeInHours;
 		
@@ -914,7 +937,7 @@
 			}
 			timeInHours = l_hours + ":" + l_minutes + ":" + l_seconds;
 			return timeInHours;
-		}
+		}*/
 
 		function recordInteraction()
 		{
@@ -923,13 +946,13 @@
 			{
 				if (currentPageTag.@trackInteraction.toLowerCase() == "true")
 				{
-					var isAvailable:Boolean = ExternalInterface.available;
+					/*var isAvailable:Boolean = ExternalInterface.available;
 				
 					if (isAvailable)
 					{
 						intCnt = ExternalInterface.call("SCOGetValue","cmi.interactions._count");
 						intStr = "cmi.interactions." + intCnt + ".";
-					}
+					}*/
 					
 					intID = new Timer(250);
 					intID.start();
@@ -943,9 +966,10 @@
 			{
 				if (currentPageTag.@recordScore.toLowerCase() == "true")
 				{
-					var sResult:Number = (Math.round((score/total * 10000000)))/10000000;
-					trace(0 + " - " + total + " - " + score + " - " + sResult);																
-					courseModel.lmsLink.apiSetScore(0,total,score,String(sResult));
+					//var sResult:Number = (Math.round((score/total * 10000000)))/10000000;
+					trace(0 + " - " + total + " - " + score);																
+					//courseModel.lmsLink.apiSetScore(0,total,score,String(sResult));
+					courseModel.lmsLink.apiSendScoreData(score,total,0)
 				}
 			}
 		}

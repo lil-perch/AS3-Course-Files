@@ -1,19 +1,21 @@
 ﻿package src.pages
 {
-	import src.pages.DynamicPageAPI;
-	import flash.events.*;
-	import flash.display.MovieClip;
-	import flash.net.URLLoader;
-	import flash.net.URLRequest;
-	import flash.events.Event;
-	import flash.media.Sound;
-	import flash.utils.*;
 	import com.greensock.*;
 	import com.greensock.easing.*;
-	import src.pages.utils.*;	
-	import flash.external.ExternalInterface;
+	
 	import flash.display.Loader;
+	import flash.display.MovieClip;
+	import flash.events.*;
+	import flash.events.Event;
+	import flash.external.ExternalInterface;
+	import flash.media.Sound;
 	import flash.media.SoundChannel;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
+	import flash.utils.*;
+	
+	import src.pages.DynamicPageAPI;
+	import src.pages.utils.*;
 
 
 
@@ -1262,39 +1264,26 @@
 		
 		private function recordInteraction()
 		{
-			
-			trace("A")
+						
 			if("@trackInteraction" in currentPageTag != false)
 			{
 				if (currentPageTag.@trackInteraction.toLowerCase() == "true")
-				{
-					trace("A2")
-					var isAvailable:Boolean = ExternalInterface.available;
-				
-					if (isAvailable)
-					{
-						trace("A3")
-						intCnt = ExternalInterface.call("SCOGetValue","cmi.interactions._count");
-						intStr = "cmi.interactions." + intCnt + ".";
-					}
-					trace("B")
+				{					
 					intID = new Timer(250);
 					intID.start();
 					intID.addEventListener(TimerEvent.TIMER, timerHandlerData);
 					intID.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandlerData);												
 				}
-			}
-			trace("C")
+			}			
 		
 			if("@recordScore" in currentPageTag != false)
 			{
 				if (currentPageTag.@recordScore.toLowerCase() == "true")
-				{
-					trace("D")
-					var sResult:Number = (Math.round((score/posScore * 10000000)))/10000000;
-					trace(0 + " - " + posScore + " - " + score + " - " + sResult);																
-					trace("E")
-					courseModel.lmsLink.apiSetScore(0,posScore,score,String(sResult));
+				{					
+					//var sResult:Number = (Math.round((score/total * 10000000)))/10000000;
+					trace(0 + " - " + total + " - " + score);																
+					//courseModel.lmsLink.apiSetScore(0,total,score,String(sResult));
+					courseModel.lmsLink.apiSendScoreData(score,total,0)
 				}
 			}
 		}
@@ -1312,120 +1301,67 @@
 		
 		function sendData()
 		{
-			var description;
+			var description:String;
 			var sData;
 			if (objCnt < played.length)
 			{
+				trace("objCnt "+objCnt)
 				if (objCnt > 0)
 				{
-					if (courseModel.courseAttributes.tracking == "SCORM1.3")
-					{
-						description = played[objCnt-1].question;
-						if (description !== undefined && description != "" && description != " ")
-						{
-							sData = intStr + "description";
-							trace("Desc: " + sData + " - " + description);							
-							courseModel.lmsLink.apiSetValue(sData,description);
-						}
-						intCnt++;
-						intStr = "cmi.interactions." + intCnt + ".";
-					}
+					description = played[objCnt-1].question;
 				}
 				
 				if (played[objCnt].time_spent == undefined)
+				{
 					played[objCnt].time_spent = 0;
-				
-				var sTime:String = getLatency(played[objCnt].time_spent);												
+				}
+										
+				var sTime:uint = played[objCnt].time_spent;				
 				//trace(sTime);
-				var sId:String = currentPageTag.@interactionID + objCnt;
+				var sId:String = currentPageTag.@interactionID + objCnt;				
 				var sWeight:Number = currentPageTag.configuration[0].@points;												
-				var sResult;
-				
+								
+				var sResult:String;
+				var correct:Boolean;				
 				if (played[objCnt].correct)
 				{
 					sResult = "C";
+					correct = true;
 				}
 				else
 				{
 					sResult = "W";
+					correct = false;
 				}						
 				var sType:String = "choice";
 				
-				var sResponse:String = escape(getLearnerResponse());
+				var sResponse:String = getLearnerResponse();
 				//trace("sResponse " + sResponse);
-				var sCorrect:String = escape(getCorrectResponse());
+				var sCorrect:String = getCorrectResponse();
 				
 				var timeStamp:String = played[objCnt].timeStamp;
 				
 				var dateStamp:String = played[objCnt].dateStamp;
-
-		
+				
 				//trace (timeStamp + "-" + dateStamp);
 				//trace("sCorrect " + sCorrect);
 				//playerMain_mc.apiSetInteraction(sId,sType,sResponse,sCorrect,sResult,sWeight,sTime);
-		
-						
+								
 				var intData = dateStamp+";"+timeStamp+";"+sId+";"+""+";"+sType+";"+sCorrect+";"+sResponse+";"+sResult+";"+sWeight+";"+sTime;				
-				trace(intData);	
-				var errmsg = ExternalInterface.call("MM_cmiSendInteractionInfo", intData);
-		
+				//trace("INT DATA: " + intData);		
+				//No need to arrange content before submitting, so call the simple method
+				var emsg:String = courseModel.lmsLink.apiSendMultipleChoiceData(sId,sResponse,correct,sCorrect,description,sWeight,sTime,"");		
+				
 				objCnt++;
-		
 			}
 			else
 			{										
-				intID.stop();
-				if (courseModel.courseAttributes.tracking == "SCORM1.3")
-				{
-					description = played[objCnt-1].question;
-					if (description !== undefined && description != "" && description != " ")
-					{
-						sData = intStr + "description";
-						trace("Desc: " + sData + " - " + description);												
-						courseModel.lmsLink.apiSetValue(sData,description);
-					}
-					intCnt++;
-					intStr = "cmi.interactions." + intCnt + ".";
-				}				
+				intID.stop();				
 				courseModel.lmsLink.apiSendCommit();
 				
 			}
 		}
 		
-		function getLatency(timeInSec)
-		{
-			var l_seconds, l_minutes, l_hours, timeInHours;
-		
-			if (timeInSec <= 9)
-			{
-				l_seconds = "0" + timeInSec;
-				l_minutes = "00";
-				l_hours = "00";
-			}
-			else
-			{
-				l_seconds = timeInSec;
-				l_minutes = "00";
-				l_hours = "00";
-			}
-			if (l_seconds > 59)
-			{
-				l_minutes = int(l_seconds / 60);
-				l_minutes = formatNum(l_minutes);
-				l_seconds = l_seconds - (l_minutes * 60);
-				l_seconds = formatNum(l_seconds);
-				l_hours = "00";
-			}
-			if (l_minutes > 59)
-			{
-				l_hours = int(l_minutes / 60);
-				l_hours = formatNum(l_hours);
-				l_minutes = l_minutes - (l_hours * 60);
-				l_minutes = formatNum(l_minutes);
-			}
-			timeInHours = l_hours + ":" + l_minutes + ":" + l_seconds;
-			return timeInHours;
-		}
 		
 		function getLearnerResponse()
 		{
@@ -1435,7 +1371,7 @@
 				if( played[objCnt].option[i].selected == true)
 				{
 					trace("DEBUG:: Option: "+played[objCnt].option[i].text)
-					return played[objCnt].option[i].text;
+					return i + "^" + played[objCnt].option[i].text;
 				}
 			}
 			return "";
@@ -1447,7 +1383,7 @@
 			{
 				if( played[objCnt].option[i].correct == true)
 				{
-					return 	played[objCnt].option[i].text;						
+					return 	i + "^" + played[objCnt].option[i].text;						
 				}
 			}
 			
