@@ -242,22 +242,26 @@ package src.pages.quiz
 			var match:uint = 0;
 			//trace("Correct: " + _correctResp.toString());
 			//trace("Learner: " + _learnerResp.toString());
-			for (var d:uint = 0;d<_correctResp.length;d++)
+			if (_learnerResp.length == _correctResp.length)
 			{
-				poss++;
-				for (var e:uint = 0;e<_learnerResp.length;e++)
+				for (var d:uint = 0;d<_correctResp.length;d++)
 				{
-					//trace(":::::" + _correctResp[d].name + " - " + _learnerResp[e].name);
-					if (_correctResp[d] == _learnerResp[e]) 
+					poss++;
+					for (var e:uint = 0;e<_learnerResp.length;e++)
 					{
-						match++; 
-						//trace("match");
+						//trace(":::::" + _correctResp[d].name + " - " + _learnerResp[e].name);
+						if (_correctResp[d] == _learnerResp[e]) 
+						{
+							match++; 
+							//trace("match");
+						}
 					}
 				}
+			
+				result = (poss == match);
+			} else {
+				result = false;
 			}
-			
-			
-			result = (poss == match);
 			if (result)
 			{
 				var feedback:String = getFeedback("correct");

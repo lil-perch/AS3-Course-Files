@@ -106,7 +106,7 @@ package src.pages.quiz
 			incorrect_txt.htmlText = sTag + quizObject.totalIncorrect + cTag;
 			score_txt.htmlText = sTag + quizObject.rawScore + cTag;
 			possible_txt.htmlText = sTag + quizObject.possibleRawScore + cTag;
-			percent_txt.htmlText = sTag + quizObject.percent + cTag;
+			percent_txt.htmlText = sTag + quizObject.percent + "%" + cTag;
 			
 			//Set message text
 			if (quizObject.recordStatus == "passfail" || quizObject.recordStatus == "apipassfail"  || quizObject.recordStatus == "passincomplete") 

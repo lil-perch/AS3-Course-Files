@@ -178,7 +178,7 @@ package src.pages.quiz
 			}
 	
 			if (score > 0)
-				_percent = 100*(score/possScore);
+				_percent = Math.round(100*(score/possScore));
 			else
 				_percent = 0;
 			_totalCorrect = correct;
