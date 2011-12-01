@@ -3,6 +3,7 @@ package src
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.ProgressEvent;
+	
 	import src.classes.LoadingPercentages;
 	
 	public class QuizModel extends Model
@@ -52,6 +53,25 @@ package src
 			} catch (error:Error) {
 			     trace("The player file is not running inside the course file: ");
 			}
+		}
+		
+		public function getQuizNode(str:String):XML
+		{
+			var quiz:XML = new XML();
+			
+			for each (var item in quizzes) 
+			{
+				if (item.@id.length() > 0)
+				{
+					if (item.@id.toString() == str)
+					{
+						return item;
+					}
+				} else {
+					return quiz;
+				}
+			}
+			return quiz;
 		}
 	}
 }

@@ -1,77 +1,108 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
+<questions>
+  <quiz id="6cvirnmv97d8ei7" quizmode="review" randomize="false" showresults="true" reportScore="true" incReview="true" incRetakeButton="true" number_questions="true" includeIntro="true" intro="intro" recordStatus="completed" minscore="0" maxscore="100" passComplete="false" failIncomplete="false" print_results="true" email_results="true" useServer="true" serverURL="http://www.rapidintake.net/send_email.asp" LMS_name="true" incQuizTitle="true" numquestions="4" useSupset="false" passingScore="70" emailSubject="Quiz Results" sendToEmail="steveh@rapidintake.com">
+    <feedback provide="true" tries="1">
+      <initPrompt>Init Prompt Global</initPrompt>
+      <evalPrompt>Eval Prompt Global</evalPrompt>
+      <correctFeedback>Correct Global</correctFeedback>
+      <incorrectFeedback>Incorrect Global</incorrectFeedback>
+      <triesFeedback>Try Again Global</triesFeedback>
+    </feedback>
+    <introText heading="This is the Introduction">&lt;P ALIGN="LEFT"&gt;This is the intro text.&lt;/P&gt;</introText>
+    <printMessage>&lt;P ALIGN="LEFT"&gt;Please send your score.&lt;/P&gt;</printMessage>
+    <question qtype="TF" correctResp="true" resetBtn="false" overrideFeedback="true" tracking="true" id="q1">
+      <feedback provide="true" tries="1">
+        <initPrompt>Init Prompt Local</initPrompt>
+        <evalPrompt>Eval Prompt Local</evalPrompt>
+        <correctFeedback>Correct Prompt Local</correctFeedback>
+        <incorrectFeedback>Incorrect Prompt Local</incorrectFeedback>
+        <triesFeedback>Try Again Prompt Local</triesFeedback>
+      </feedback>
+      <questionText>&lt;P ALIGN="LEFT"&gt;The sky is blue.&lt;/P&gt;</questionText>
+    </question>
+    <question qtype="MCH" overrideFeedback="false" tracking="true" id="q2">
+      <distractors randomize="true">
+        <distractor correct="true">The sky is blue.</distractor>
+        <distractor iFeedback="Not red except on sunset or sunrise.">The sky is red</distractor>
+        <distractor iFeedback="It is not truly black">Black</distractor>
+        <distractor iFeedback="With smog it could be considered brown." wrap="true">Brown</distractor>
+      </distractors>
+      <feedback provide="true" tries="1"/>
+      <questionText>&lt;P ALIGN="LEFT"&gt;what color is the sky?&lt;/P&gt;</questionText>
+    </question>
+    <question qtype="MC" overrideFeedback="false" tracking="true" id="q3">
+      <distractors randomize="true">
+        <distractor correct="true">Blue</distractor>
+        <distractor correct="true">Red with a sunset</distractor>
+        <distractor>Purple</distractor>
+        <distractor correct="true">Orange with a sunset</distractor>
+      </distractors>
+      <feedback provide="true" tries="1"/>
+      <questionText>&lt;P ALIGN="LEFT"&gt;What colors could the sky be?&lt;/P&gt;</questionText>
+    </question>
+    <question qtype="FB" exactMatch="true" caseSensitive="true" otherRespCorrect="false" overrideFeedback="false" tracking="true" id="q4">
+      <responses>
+        <response correct="true">Blue</response>
+        <response correct="false"/>
+        <response correct="false"/>
+        <response correct="false"/>
+        <response correct="false"/>
+      </responses>
+      <feedback provide="true" tries="1"/>
+      <questionText>&lt;P ALIGN="LEFT"&gt;What color is the sky?&lt;/P&gt;</questionText>
+    </question>
+  </quiz>
 
-
-<questions xmlns="www.rapidintake.com/xmlgrammars/fc/quiz">
-	<quiz passComplete="false" failIncomplete="false" print_results="false" email_results="false" LMS_name="false" showresults="true" quizmode="review" randomize="false" numquestions="5" recordStatus="none" incReview="false" incRetakeButton="false" number_questions="false" intro="intro" id="[Enter New Quiz ID]-1">
-		<question id="q1" tracking="true" weight="1" correctResp="true" overrideFeedback="false" qtype="TF">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">The sky is blue</FONT></P>]]></questionText>
-		</question>
-		<question id="q2" tracking="true" weight="1" overrideFeedback="false" qtype="MCAUDIO">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Choose an option</FONT></P>]]></questionText>
-			<distractors randomize="true">
-				<distractor correct="false" wrap="false" filePath="media/brahms2.mp3"><![CDATA[Option one]]></distractor>
-				<distractor correct="false" wrap="false" filePath="media/incoming_calls5.mp3"><![CDATA[Options Two]]></distractor>
-			</distractors>
-		</question>
-		<question id="q3" tracking="true" weight="1" exactMatch="false" caseSensitive="false" otherRespCorrect="false" overrideFeedback="false" qtype="FB">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">What color is the sky?</FONT></P>]]></questionText>
-			<responses>
-				<response correct="true"><![CDATA[blue]]></response>
-			</responses>
-		</question>
-		<question id="q4" tracking="true" weight="1" resetBtn="true" overrideFeedback="false" qtype="DDNUM">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Put the steps in order</FONT></P>]]></questionText>
-			<dragobjects randomize="true">
-				<textelement matchelement="1"><![CDATA[Step 1]]></textelement>
-				<textelement matchelement="2"><![CDATA[Step 2]]></textelement>
-				<textelement matchelement="3"><![CDATA[Step 3]]></textelement>
-				<textelement matchelement="4"><![CDATA[Step 4]]></textelement>
-			</dragobjects>
-		</question>
-		<question id="q5" tracking="true" weight="1" resetBtn="true" target1="BYU" target2="UTAH" draghead="Items" overrideFeedback="false" qtype="DDTASK">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Put these in the corerct categories</FONT></P>]]></questionText>
-			<dragobjects randomize="true">
-				<textelement matchelement="BYU"><![CDATA[Blue]]></textelement>
-				<textelement matchelement="Utah"><![CDATA[Red]]></textelement>
-				<textelement matchelement="BYU"><![CDATA[Cougar]]></textelement>
-				<textelement matchelement="Utah"><![CDATA[Ute]]></textelement>
-			</dragobjects>
-		</question>
-	</quiz>
-	<quiz passComplete="false" failIncomplete="false" print_results="false" email_results="false" LMS_name="false" showresults="true" quizmode="review" randomize="false" numquestions="5" recordStatus="none" incReview="false" incRetakeButton="false" number_questions="false" intro="intro" id="[Enter New Quiz ID]-1">
-		<question id="q1" tracking="true" weight="1" correctResp="true" overrideFeedback="false" qtype="TF">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">The sky is blue</FONT></P>]]></questionText>
-		</question>
-		<question id="q2" tracking="true" weight="1" overrideFeedback="false" qtype="MCAUDIO">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Choose an option</FONT></P>]]></questionText>
-			<distractors randomize="true">
-				<distractor correct="false" wrap="false" filePath="media/brahms2.mp3"><![CDATA[Option one]]></distractor>
-				<distractor correct="false" wrap="false" filePath="media/incoming_calls5.mp3"><![CDATA[Options Two]]></distractor>
-			</distractors>
-		</question>
-		<question id="q3" tracking="true" weight="1" exactMatch="false" caseSensitive="false" otherRespCorrect="false" overrideFeedback="false" qtype="FB">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">What color is the sky?</FONT></P>]]></questionText>
-			<responses>
-				<response correct="true"><![CDATA[blue]]></response>
-			</responses>
-		</question>
-		<question id="q4" tracking="true" weight="1" resetBtn="true" overrideFeedback="false" qtype="DDNUM">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Put the steps in order</FONT></P>]]></questionText>
-			<dragobjects randomize="true">
-				<textelement matchelement="1"><![CDATA[Step 1]]></textelement>
-				<textelement matchelement="2"><![CDATA[Step 2]]></textelement>
-				<textelement matchelement="3"><![CDATA[Step 3]]></textelement>
-				<textelement matchelement="4"><![CDATA[Step 4]]></textelement>
-			</dragobjects>
-		</question>
-		<question id="q5" tracking="true" weight="1" resetBtn="true" target1="BYU" target2="UTAH" draghead="Items" overrideFeedback="false" qtype="DDTASK">
-			<questionText><![CDATA[<P ALIGN="LEFT"><FONT    LETTERSPACING="0" KERNING="0">Put these in the corerct categories</FONT></P>]]></questionText>
-			<dragobjects randomize="true">
-				<textelement matchelement="BYU"><![CDATA[Blue]]></textelement>
-				<textelement matchelement="Utah"><![CDATA[Red]]></textelement>
-				<textelement matchelement="BYU"><![CDATA[Cougar]]></textelement>
-				<textelement matchelement="Utah"><![CDATA[Ute]]></textelement>
-			</dragobjects>
-		</question>
-	</quiz>
+<quiz id="6cvirnmv83d8ei7" quizmode="review" randomize="false" showresults="true" reportScore="true" incReview="true" incRetakeButton="true" number_questions="true" includeIntro="true" intro="intro" recordStatus="completed" minscore="0" maxscore="100" passComplete="false" failIncomplete="false" print_results="true" email_results="true" useServer="true" serverURL="http://www.rapidintake.net/send_email.asp" LMS_name="true" incQuizTitle="true" numquestions="4" useSupset="false" passingScore="70" emailSubject="Quiz Results" sendToEmail="steveh@rapidintake.com">
+    <feedback provide="true" tries="1">
+      <initPrompt>Init Prompt Global</initPrompt>
+      <evalPrompt>Eval Prompt Global</evalPrompt>
+      <correctFeedback>Correct Global</correctFeedback>
+      <incorrectFeedback>Incorrect Global</incorrectFeedback>
+      <triesFeedback>Try Again Global</triesFeedback>
+    </feedback>
+    <introText heading="This is the Introduction">&lt;P ALIGN="LEFT"&gt;This is the intro text.&lt;/P&gt;</introText>
+    <printMessage>&lt;P ALIGN="LEFT"&gt;Please send your score.&lt;/P&gt;</printMessage>
+    <question qtype="TF" correctResp="true" resetBtn="false" overrideFeedback="true" tracking="true" id="q1">
+      <feedback provide="true" tries="1">
+        <initPrompt>Init Prompt Local</initPrompt>
+        <evalPrompt>Eval Prompt Local</evalPrompt>
+        <correctFeedback>Correct Prompt Local</correctFeedback>
+        <incorrectFeedback>Incorrect Prompt Local</incorrectFeedback>
+        <triesFeedback>Try Again Prompt Local</triesFeedback>
+      </feedback>
+      <questionText>&lt;P ALIGN="LEFT"&gt;The sky is blue.&lt;/P&gt;</questionText>
+    </question>
+    <question qtype="MCH" overrideFeedback="false" tracking="true" id="q2">
+      <distractors randomize="true">
+        <distractor correct="true">The sky is blue.</distractor>
+        <distractor iFeedback="Not red except on sunset or sunrise.">The sky is red</distractor>
+        <distractor iFeedback="It is not truly black">Black</distractor>
+        <distractor iFeedback="With smog it could be considered brown." wrap="true">Brown</distractor>
+      </distractors>
+      <feedback provide="true" tries="1"/>
+      <questionText>&lt;P ALIGN="LEFT"&gt;what color is the sky?&lt;/P&gt;</questionText>
+    </question>
+    <question qtype="MC" overrideFeedback="false" tracking="true" id="q3">
+      <distractors randomize="true">
+        <distractor correct="true">Blue</distractor>
+        <distractor correct="true">Red with a sunset</distractor>
+        <distractor>Purple</distractor>
+        <distractor correct="true">Orange with a sunset</distractor>
+      </distractors>
+      <feedback provide="true" tries="1"/>
+      <questionText>&lt;P ALIGN="LEFT"&gt;What colors could the sky be?&lt;/P&gt;</questionText>
+    </question>
+    <question qtype="FB" exactMatch="true" caseSensitive="true" otherRespCorrect="false" overrideFeedback="false" tracking="true" id="q4">
+      <responses>
+        <response correct="true">Blue</response>
+        <response correct="false"/>
+        <response correct="false"/>
+        <response correct="false"/>
+        <response correct="false"/>
+      </responses>
+      <feedback provide="true" tries="1"/>
+      <questionText>&lt;P ALIGN="LEFT"&gt;What color is the sky?&lt;/P&gt;</questionText>
+    </question>
+  </quiz>
 </questions>

@@ -117,20 +117,30 @@ package src
 			settingsModel.removeEventListener(Model.MODEL_LOADED,settingsLoaded);
 			var scoxml:String = settingsModel.paths.scoXML;
 			_toc = settingsModel.paths.tocSWF;
-		
-			playerModel = new CourseModel(_coursePreloader,this);
+			
+			quizModel = new QuizModel(_coursePreloader);
+			var quizxml:String = settingsModel.paths.quizXML;
+			//Make sure the XML isn't cached.
+			_cacheString = _processData.getSkipCacheString(_playingLocally);
+			if (_cacheString == null) _cacheString = "";
+			quizModel.load(new URLRequest(quizxml + _cacheString));
+			quizModel.addEventListener(Model.MODEL_LOADED,quizXMLLoaded);
+			
+			/*playerModel = new CourseModel(_coursePreloader,this);
 			playerModel.feedbackPanel = feedbackPanel;
 			//Make sure the XML isn't cached
 			_cacheString = _processData.getSkipCacheString(_playingLocally);
 			if (_cacheString == null) _cacheString = "";
 			playerModel.load(new URLRequest(scoxml + _cacheString));
-			playerModel.addEventListener(Model.MODEL_LOADED,courseXMLLoaded);
+			playerModel.addEventListener(Model.MODEL_LOADED,courseXMLLoaded);*/
 		}
 		
 		private function courseXMLLoaded(e:Event):void
 		{
 			trace("THE SCO.XML FILE HAS LOADED:");
 			playerModel.removeEventListener(Model.MODEL_LOADED,courseXMLLoaded);
+			
+			startCourse();
 			
 			/*quizModel = new QuizModel(_coursePreloader);
 			var quizxml:String = settingsModel.paths.quizXML;
@@ -140,17 +150,17 @@ package src
 			quizModel.load(new URLRequest(quizxml + _cacheString));
 			quizModel.addEventListener(Model.MODEL_LOADED,quizXMLLoaded);*/
 			
-			glossaryModel = new GlossaryModel(_coursePreloader);
+			/*glossaryModel = new GlossaryModel(_coursePreloader);
 			var glossxml:String = settingsModel.paths.glossaryXML;
 			//Make sure the XML isn't cached.
 			_cacheString = _processData.getSkipCacheString(_playingLocally);
 			if (_cacheString == null) _cacheString = "";
 			glossaryModel.load(new URLRequest(glossxml + _cacheString));
-			glossaryModel.addEventListener(Model.MODEL_LOADED,glossaryXMLLoaded);
+			glossaryModel.addEventListener(Model.MODEL_LOADED,glossaryXMLLoaded);*/
 		}
 		
 		//Loading the quiz.xml file is no longer required.
-		/*private function quizXMLLoaded(e:Event):void
+		private function quizXMLLoaded(e:Event):void
 		{
 			quizModel.removeEventListener(Model.MODEL_LOADED,quizXMLLoaded);
 			trace("THE QUIZ.XML FILE HAS LOADED:");
@@ -161,13 +171,25 @@ package src
 			if (_cacheString == null) _cacheString = "";
 			glossaryModel.load(new URLRequest(glossxml + _cacheString));
 			glossaryModel.addEventListener(Model.MODEL_LOADED,glossaryXMLLoaded);
-		}*/
+		}
 		
 		private function glossaryXMLLoaded(e:Event):void
 		{
 			glossaryModel.removeEventListener(Model.MODEL_LOADED,glossaryXMLLoaded);
 			trace("THE GLOSSARY.XML FILE HAS LOADED:");
-			startCourse();	
+			
+			var scoxml:String = settingsModel.paths.scoXML;
+			_toc = settingsModel.paths.tocSWF;
+			
+			playerModel = new CourseModel(_coursePreloader,this,quizModel);
+			playerModel.feedbackPanel = feedbackPanel;
+			//Make sure the XML isn't cached
+			_cacheString = _processData.getSkipCacheString(_playingLocally);
+			if (_cacheString == null) _cacheString = "";
+			playerModel.load(new URLRequest(scoxml + _cacheString));
+			playerModel.addEventListener(Model.MODEL_LOADED,courseXMLLoaded);
+			
+			//startCourse();	
 		}
 		
 		public function startCourse():void
