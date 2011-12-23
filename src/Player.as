@@ -181,7 +181,7 @@ package src
 			var scoxml:String = settingsModel.paths.scoXML;
 			_toc = settingsModel.paths.tocSWF;
 			
-			playerModel = new CourseModel(_coursePreloader,this,quizModel);
+			playerModel = new CourseModel(_coursePreloader,this,quizModel,settingsModel);
 			playerModel.feedbackPanel = feedbackPanel;
 			//Make sure the XML isn't cached
 			_cacheString = _processData.getSkipCacheString(_playingLocally);

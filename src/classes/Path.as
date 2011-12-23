@@ -18,6 +18,12 @@ package src.classes
 		private var _warningicon:String;
 		private var _as2loader:String;				//Path to as2 loader SWF for loading AS2 movies
 		private var _pagecss:String					//Path to CSS for pages including quiz files
+		private var _intropage:String;				//Path to intro page for quiz
+		private var _resultspage:String;			//Path to results page for quiz
+		private var _truefalsepage:String;			//Path to True/False page for quiz
+		private var _multiplechoicepage:String;		//Path to Multiple Choice page for quiz
+		private var _multiplecorrectpage:String;	//Path to Multiple Correct page for quiz
+		private var _fillinblankpage:String;		//Path to Fill in the blank page for quiz
 		
 		public function Path()
 		{
@@ -185,5 +191,64 @@ package src.classes
 			return _pagecss;
 		}
 		
+		public function set introPage(x:String):void
+		{
+			_intropage = x;
+		}
+		
+		public function get introPage():String
+		{
+			return _intropage;
+		}
+		
+		public function set resultsPage(x:String):void
+		{
+			_resultspage = x;
+		}
+		
+		public function get resultsPage():String
+		{
+			return _resultspage;
+		}
+		
+		public function set trueFalsePage(x:String):void
+		{
+			_truefalsepage = x;
+		}
+		
+		public function get trueFalsePage():String
+		{
+			return _truefalsepage;
+		}
+		
+		public function set multipleChoicePage(x:String):void
+		{
+			_multiplechoicepage = x;
+		}
+		
+		public function get multipleChoicePage():String
+		{
+			return _multiplechoicepage;
+		}
+		
+		public function set multipleCorrectPage(x:String):void
+		{
+			_multiplecorrectpage = x;
+		}
+		
+		public function get multipleCorrectPage():String
+		{
+			return _multiplecorrectpage;
+		}
+		
+		public function set fillInTheBlankPage(x:String):void
+		{
+			_fillinblankpage = x;
+		}
+		
+		public function get fillInTheBlankPage():String
+		{
+			return _fillinblankpage;
+		}
 	}
 }

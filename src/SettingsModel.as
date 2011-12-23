@@ -65,6 +65,12 @@ package src
 			paths.warningIcon				=	_settings.filepaths.warningicon;
 			paths.as2Loader					=	_settings.filepaths.as2loader;
 			paths.pageCSS					=	_settings.filepaths.pagecss;
+			paths.introPage					=	_settings.filepaths.intropage;
+			paths.resultsPage				=	_settings.filepaths.resultspage;
+			paths.multipleChoicePage		=	_settings.filepaths.multiplechoicepage;
+			paths.multipleCorrectPage		=	_settings.filepaths.multiplecorrectpage;
+			paths.trueFalsePage				=	_settings.filepaths.truefalsepage;
+			paths.fillInTheBlankPage		=	_settings.filepaths.fillinblankpage;
 
 			settings.useInterfaceColors 	= 	(_settings.coursesettings.useinterfacecolors.toLowerCase() =="true");
 			settings.detatchedMenu			= 	(_settings.coursesettings.detatchedmenu.toLowerCase() == "true");

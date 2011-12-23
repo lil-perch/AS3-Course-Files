@@ -20,6 +20,13 @@
 		<warningicon>swfs/pagetemplates/warning_icon.swf</warningicon>
 		<as2loader>swfs/ri_as2_loader.swf</as2loader>
 		<pagecss>xml/css/pages.css</pagecss>
+		<!--Paths to Quiz Pages-->
+		<intropage>swfs/quiz/intro.swf</intropage>
+		<resultspage>swfs/quiz/results.swf</resultspage>
+		<truefalsepage>swfs/quiz/true_false.swf</truefalsepage>
+		<multiplechoicepage>swfs/quiz/multiple_choice.swf</multiplechoicepage>
+		<multiplecorrectpage>swfs/quiz/multiple_correct.swf</multiplecorrectpage>
+		<fillinblankpage>swfs/quiz/fill_in_blank.swf</fillinblankpage>
 	</filepaths>
 	<!--Settings Information-->
 	<coursesettings>
