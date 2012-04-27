@@ -137,10 +137,11 @@
 		
 		private function addScrollBar(txtFld)
 		{
-			if(txtFld.maxScrollV>1)
+			if(txtFld.textHeight>txtFld.height)
 			{
 				var scrollbar:UIScrollBar = new UIScrollBar();				
 				addChild(scrollbar); 
+				txtFld.width -= 10;
 				scrollbar.x = txtFld.width+txtFld.x+scrollbar.width; 
 				scrollbar.y = txtFld.y;
 				scrollbar.height = txtFld.height;

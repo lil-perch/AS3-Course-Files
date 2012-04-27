@@ -1,0 +1,167 @@
+/* Application {
+   backgroundColor: #cccccc;
+   backgroundGradientColors: #bdcbd2, #5a8398;
+} */
+/* Button {
+   highlightAlphas: 1, 0.33;
+   fillAlphas: 1, 0.16, 0.18, 1;
+   fillColors: #5f89b9, #697182, #ffffff, #eeeeee;
+} */
+
+.optionsPanelStyle {
+	headerHeight: 26;
+	drop-shadow-enabled: false;
+	roundedBottomCorners: false;
+	borderThicknessTop: 1;
+	background-alpha: 0.7;
+	borderThicknessBottom: 1;
+	borderThicknessLeft: 1;
+	borderThicknessRight: 1;
+	borderAlpha: 0.7;
+	backgroundSize: auto;
+	controlBarStyleName: panelControlBar;
+	statusStyleName: panelStatus;
+	cornerRadius: 0;
+}
+.myPanel {
+	headerHeight: 26;
+	drop-shadow-enabled: false;
+	roundedBottomCorners: false;
+	borderThicknessTop: 1;
+	header-style-name: "transparent";
+	background-alpha: 0.7;
+	borderThicknessBottom: 1;
+	borderThicknessLeft: 1;
+	borderThicknessRight: 1;
+	borderAlpha: 0.7;
+	titleStyleName: "mypanelTitle";
+	backgroundColor: #FFFFFF;
+	backgroundSize: auto;
+	controlBarStyleName: panelControlBar;
+	statusStyleName: panelStatus;
+	borderColor: #000000;
+	cornerRadius: 0;
+}
+.myToolsPanel {
+	
+}
+.mypanelTitle {
+	fontFamily: Arial;
+	fontSize: 10;
+	fontWeight: bold;
+}
+.transparent {
+	background-alpha: 0;
+}
+/*.closeBtn {
+	upSkin:        Embed('/com/rapidintake/omniTemplate/assets/img/closeButton.png');
+	overSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/closeButton.png');
+	downSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/closeButton.png');
+	disabledSkin:  Embed('/com/rapidintake/omniTemplate/assets/img/closeButton.png');
+}
+.deleteBtn {
+	upSkin:        Embed('/com/rapidintake/omniTemplate/assets/img/trash_s.png');
+	overSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/trash_s.png');
+	downSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/trash_s.png');
+	disabledSkin:  Embed('/com/rapidintake/omniTemplate/assets/img/trash_s.png');
+}
+.editBtn {
+	upSkin:        Embed('/com/rapidintake/omniTemplate/assets/img/pencil_s.png');
+	overSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/pencil_s.png');
+	downSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/pencil_s.png');
+	disabledSkin:  Embed('/com/rapidintake/omniTemplate/assets/img/pencil_s.png');
+}
+.increaseBtn {
+	upSkin:        Embed('/com/rapidintake/omniTemplate/assets/img/increaseButton.png');
+	overSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/increaseButton.png');
+	downSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/increaseButton.png');
+	disabledSkin:  Embed('/com/rapidintake/omniTemplate/assets/img/increaseButton.png');
+}
+.decreaseBtn {
+	upSkin:        Embed('/com/rapidintake/omniTemplate/assets/img/decreaseButton.png');
+	overSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/decreaseButton.png');
+	downSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/decreaseButton.png');
+	disabledSkin:  Embed('/com/rapidintake/omniTemplate/assets/img/decreaseButton.png');
+}*/
+/* .minimizeBtn {
+	upSkin:        Embed('/com/rapidintake/omniTemplate/assets/img/minimizeButton.png');
+	overSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/minimizeButton.png');
+	downSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/minimizeButton.png');
+	disabledSkin:  Embed('/com/rapidintake/omniTemplate/assets/img/minimizeButton.png');
+} */
+/*.resizeHndlr {
+	upSkin:        Embed('/com/rapidintake/omniTemplate/assets/img/resizeHandler.png');
+	overSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/resizeHandler.png');
+	downSkin:      Embed('/com/rapidintake/omniTemplate/assets/img/resizeHandler.png');
+	disabledSkin:  Embed('/com/rapidintake/omniTemplate/assets/img/resizeHandler.png');
+}*/
+.panelControlBar
+{
+	backgroundAlpha: 0.0;
+	backgroundSize: auto;
+	horizontalAlign: left;
+}
+.panelStatus
+{
+}
+
+.captionheading
+{
+	font-weight: bold;
+	
+
+}
+
+.captiontext
+{
+
+}
+
+.headerBack
+{    
+	background-image:   Embed(source="../../../../../assets/mainbar.png");
+	background-size:"100%";
+	
+}
+/*background-repeat:   repeat;
+background-position: center;
+background-blend:    multiply;
+*/
+
+
+
+.toolButton{
+	borderColor: #58595B;
+	color: #58595B;
+	fontFamily: "Century Gothic";
+	fontSize: 14;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #E6E7E8, #F1F2F2;
+
+}
+/*@font-face
+{
+	fontFamily: "Century Gothic";
+	fontStyle: normal;
+	src: local("Century Gothic");
+}*/
+
+
+
+.toolsLabel{
+	fontFamily: Verdana;
+	fontSize: 21;
+	fontWeight: bold;
+	color: #58595B;
+}
+
+
+.toolSubLabel{
+	fontFamily: Arial;
+	fontSize: 10;
+	color: #58595B;
+}
+
+
+
+
